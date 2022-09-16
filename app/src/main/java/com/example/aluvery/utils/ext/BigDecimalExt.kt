@@ -1,0 +1,8 @@
+package com.example.aluvery.utils.ext
+
+import java.math.BigDecimal
+import java.text.NumberFormat
+import java.util.Locale
+
+fun BigDecimal.toBrazilianCurrency() =
+    NumberFormat.getCurrencyInstance(Locale("pt", "br")).format(this)
