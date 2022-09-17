@@ -1,13 +1,9 @@
 package com.example.aluvery.ui.components
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,8 +12,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
@@ -88,43 +82,6 @@ fun ProductItem(product: Product) {
     }
 }
 
-@Composable
-fun ProductsSection() {
-    Column(Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)) {
-        Text(text = "Produtos",
-            modifier = Modifier.padding(bottom = 16.dp),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal
-        )
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(rememberScrollState()),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            ProductItem(
-                Product(
-                    name = "Pizza",
-                    price = BigDecimal(14.99),
-                    image = R.drawable.pizza
-                )
-            )
-            ProductItem(
-                Product(
-                    name = "Burger",
-                    price = BigDecimal(20.99),
-                    image = R.drawable.burger
-                )
-            )
-            ProductItem(
-                Product(
-                    name = "Fries",
-                    price = BigDecimal(4.99),
-                    image = R.drawable.fries
-                )
-            )
-        }
-    }
-}
-
 @Preview
 @Composable
 private fun ProductItemPreview() {
@@ -135,10 +92,4 @@ private fun ProductItemPreview() {
             image = R.drawable.ic_launcher_background
         )
     )
-}
-
-@Preview(showBackground = true, widthDp = 1000)
-@Composable
-fun ProductsSectionPreview() {
-    ProductsSection()
 }
