@@ -19,9 +19,9 @@ import com.example.aluvery.data.model.Product
 import java.math.BigDecimal
 
 @Composable
-fun ProductsSection() {
+fun ProductsSection(title: String, products: List<Product>) {
     Column(Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)) {
-        Text(text = "Produtos",
+        Text(text = title,
             modifier = Modifier.padding(bottom = 16.dp),
             fontSize = 20.sp,
             fontWeight = FontWeight.Normal
@@ -29,28 +29,11 @@ fun ProductsSection() {
         Row(modifier = Modifier
             .fillMaxWidth()
             .horizontalScroll(rememberScrollState()),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            ProductItem(
-                Product(
-                    name = "Pizza",
-                    price = BigDecimal(14.99),
-                    image = R.drawable.pizza
-                )
-            )
-            ProductItem(
-                Product(
-                    name = "Burger",
-                    price = BigDecimal(20.99),
-                    image = R.drawable.burger
-                )
-            )
-            ProductItem(
-                Product(
-                    name = "Fries",
-                    price = BigDecimal(4.99),
-                    image = R.drawable.fries
-                )
-            )
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            products.forEach { product ->
+                ProductItem(product = product)
+            }
         }
     }
 }
@@ -58,5 +41,23 @@ fun ProductsSection() {
 @Preview(showBackground = true, widthDp = 1000)
 @Composable
 fun ProductsSectionPreview() {
-    ProductsSection()
+    ProductsSection(title = "Promotions", products = sampleProducts)
 }
+
+val sampleProducts = listOf(
+    Product(
+        name = "Pizza",
+        price = BigDecimal(14.99),
+        image = R.drawable.pizza
+    ),
+    Product(
+        name = "Burger",
+        price = BigDecimal(20.99),
+        image = R.drawable.burger
+    ),
+    Product(
+        name = "Fries",
+        price = BigDecimal(4.99),
+        image = R.drawable.fries
+    )
+)

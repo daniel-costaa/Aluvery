@@ -8,16 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aluvery.ui.components.ProductsSection
+import com.example.aluvery.ui.components.sampleProducts
 import com.example.aluvery.ui.theme.AluveryTheme
 
 @Composable
 fun HomeScreen() {
     Column(Modifier.verticalScroll(rememberScrollState())) {
-        ProductsSection()
-        ProductsSection()
-        ProductsSection()
-        ProductsSection()
-        ProductsSection()
+        ProductsSection("Salgados", sampleProducts)
+        ProductsSection("Doces", sampleProducts)
+        ProductsSection("Comidas", sampleProducts)
+        ProductsSection("Teste", sampleProducts)
     }
 }
 
